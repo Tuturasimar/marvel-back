@@ -2,6 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const md5 = require("md5");
+const uid2 = require("uid2");
 
 const app = express();
 app.use(cors());
@@ -12,9 +13,9 @@ const api_key = process.env.API_KEY;
 const api_secret = process.env.API_SECRET;
 
 app.get("/pick", async (req, res) => {
-  const date = new Date();
-  const timestamp = Math.floor(date.getTime() / 1000);
-
+  // const date = new Date();
+  // const timestamp = Math.floor(date.getTime() / 1000);
+  const timestamp = uid2(8);
   const hash = md5(timestamp + api_secret + api_key);
   console.log(req.query);
   const offset = req.query.skip;
