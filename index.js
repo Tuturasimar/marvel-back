@@ -11,12 +11,11 @@ require("dotenv").config();
 api_key = process.env.API_KEY;
 api_secret = process.env.API_SECRET;
 
-const date = new Date();
-const timestamp = Math.floor(date.getTime() / 1000);
-
-const hash = md5(timestamp + api_secret + api_key);
-
 app.get("/pick", async (req, res) => {
+  const date = new Date();
+  const timestamp = Math.floor(date.getTime() / 1000);
+
+  const hash = md5(timestamp + api_secret + api_key);
   console.log(req.query);
   offset = req.query.skip;
   try {
@@ -30,6 +29,10 @@ app.get("/pick", async (req, res) => {
 });
 
 app.get("/comics", async (req, res) => {
+  const date = new Date();
+  const timestamp = Math.floor(date.getTime() / 1000);
+
+  const hash = md5(timestamp + api_secret + api_key);
   console.log(req.query);
   offset = req.query.skip;
   try {
@@ -43,6 +46,10 @@ app.get("/comics", async (req, res) => {
 });
 
 app.get("/research", async (req, res) => {
+  const date = new Date();
+  const timestamp = Math.floor(date.getTime() / 1000);
+
+  const hash = md5(timestamp + api_secret + api_key);
   name = req.query.value;
   offset = req.query.skip;
   console.log(name);
@@ -58,6 +65,10 @@ app.get("/research", async (req, res) => {
 });
 
 app.get("/search", async (req, res) => {
+  const date = new Date();
+  const timestamp = Math.floor(date.getTime() / 1000);
+
+  const hash = md5(timestamp + api_secret + api_key);
   name = req.query.value;
   offset = req.query.skip;
   console.log(name);
@@ -73,6 +84,10 @@ app.get("/search", async (req, res) => {
 });
 
 app.get("/hero", async (req, res) => {
+  const date = new Date();
+  const timestamp = Math.floor(date.getTime() / 1000);
+
+  const hash = md5(timestamp + api_secret + api_key);
   id = req.query.id;
   try {
     const response = await axios.get(
@@ -85,6 +100,10 @@ app.get("/hero", async (req, res) => {
 });
 
 app.get("/hero/comics", async (req, res) => {
+  const date = new Date();
+  const timestamp = Math.floor(date.getTime() / 1000);
+
+  const hash = md5(timestamp + api_secret + api_key);
   console.log(req.query);
   id = req.query.id;
   try {
