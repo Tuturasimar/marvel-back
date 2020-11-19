@@ -12,11 +12,13 @@ require("dotenv").config();
 const api_key = process.env.API_KEY;
 const api_secret = process.env.API_SECRET;
 
+const date = new Date();
+const timestamp = Math.floor(date.getTime() / 1000);
+const hash = md5(timestamp + api_secret + api_key);
+
 app.get("/pick", async (req, res) => {
-  // const date = new Date();
-  // const timestamp = Math.floor(date.getTime() / 1000);
-  const timestamp = uid2(8);
-  const hash = md5(timestamp + api_secret + api_key);
+  // const timestamp = uid2(8);
+
   console.log(req.query);
   const offset = req.query.skip;
   try {
@@ -31,10 +33,6 @@ app.get("/pick", async (req, res) => {
 });
 
 app.get("/comics", async (req, res) => {
-  const date = new Date();
-  const timestamp = Math.floor(date.getTime() / 1000);
-
-  const hash = md5(timestamp + api_secret + api_key);
   console.log(req.query);
   const offset = req.query.skip;
   try {
@@ -48,10 +46,6 @@ app.get("/comics", async (req, res) => {
 });
 
 app.get("/research", async (req, res) => {
-  const date = new Date();
-  const timestamp = Math.floor(date.getTime() / 1000);
-
-  const hash = md5(timestamp + api_secret + api_key);
   const name = req.query.value;
   const offset = req.query.skip;
   console.log(name);
@@ -67,10 +61,6 @@ app.get("/research", async (req, res) => {
 });
 
 app.get("/search", async (req, res) => {
-  const date = new Date();
-  const timestamp = Math.floor(date.getTime() / 1000);
-
-  const hash = md5(timestamp + api_secret + api_key);
   const name = req.query.value;
   const offset = req.query.skip;
   console.log(name);
@@ -86,10 +76,6 @@ app.get("/search", async (req, res) => {
 });
 
 app.get("/hero", async (req, res) => {
-  const date = new Date();
-  const timestamp = Math.floor(date.getTime() / 1000);
-
-  const hash = md5(timestamp + api_secret + api_key);
   const id = req.query.id;
   try {
     const response = await axios.get(
@@ -102,10 +88,6 @@ app.get("/hero", async (req, res) => {
 });
 
 app.get("/hero/comics", async (req, res) => {
-  const date = new Date();
-  const timestamp = Math.floor(date.getTime() / 1000);
-
-  const hash = md5(timestamp + api_secret + api_key);
   console.log(req.query);
   const id = req.query.id;
   try {
