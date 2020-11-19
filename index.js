@@ -24,7 +24,7 @@ app.get("/pick", async (req, res) => {
     );
     res.status(200).json({ data: response.data });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.response });
   }
 });
 
