@@ -25,7 +25,7 @@ app.get("/pick", async (req, res) => {
     );
     res.status(200).json({ data: response.data });
   } catch (error) {
-    res.status().json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -38,7 +38,7 @@ app.get("/comics", async (req, res) => {
     );
     res.status(200).json({ data: response.data });
   } catch (error) {
-    res.status().json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -53,7 +53,7 @@ app.get("/research", async (req, res) => {
     );
     res.status(200).json({ data: response.data });
   } catch (error) {
-    res.status().json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -68,7 +68,7 @@ app.get("/search", async (req, res) => {
     );
     res.status(200).json({ data: response.data });
   } catch (error) {
-    res.status().json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
